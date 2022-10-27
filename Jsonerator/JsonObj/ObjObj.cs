@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Jsonerator.JsonObj
+{
+    public class ObjectObj : BaseObj
+    {
+        public ObjectObj(string name) : base(name)
+        {
+            ObjType = ObjType.Object;
+        }
+
+        // All properties, including Property, Array and Object classes
+        public List<BaseObj> Children { get; set; } = new List<BaseObj>();
+    }
+}
