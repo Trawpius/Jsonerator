@@ -40,6 +40,9 @@ namespace Jsonerator
             string txt = File.ReadAllText(filepath);
             JObject obj = JsonDeserializer.StringToJObject(txt);
             ObjectObj jsonObj = Objenerator.Objenerate(obj);
+
+            ClassAuthor.ClassAuthor author = new ClassAuthor.ClassAuthor(jsonObj, "genericoutput");
+            author.WriteCSharpDebug();
             Console.ReadKey();
         } 
     }

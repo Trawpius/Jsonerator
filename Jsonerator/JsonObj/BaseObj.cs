@@ -10,7 +10,15 @@ namespace Jsonerator.JsonObj
     {
         public BaseObj(string name)
         {
-            Name = name;
+
+            if(string.IsNullOrWhiteSpace(name))
+            {
+                Name = "DefaultName";
+            }
+            else
+            {
+                Name = name;
+            }
             ObjType = ObjType.Null;
         }
         public string Name { get; set; }

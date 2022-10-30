@@ -20,7 +20,7 @@ namespace Jsonerator
 
         private static ObjectObj BuildObject(JObject parent)
         {
-            string name = parent.Path.Split('.').Last();
+            string name = parent.Path.Split('.').Last().TrimAfter('[');
             ObjectObj obj = new ObjectObj(name);
 
             List<BaseObj> children = new List<BaseObj>();
