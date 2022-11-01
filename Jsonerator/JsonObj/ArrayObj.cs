@@ -19,5 +19,21 @@ namespace Jsonerator.JsonObj
             IndexType = indType;
         }
         public BaseObj IndexType { get; set; }
+
+        public override List<BaseObj> Traverse()
+        {
+            List<BaseObj> list = new List<BaseObj>();
+            if (IndexType is ObjectObj)
+            {
+                list.Add((ObjectObj)IndexType);
+                list.AddRange(IndexType.Traverse());
+            }
+            if (IndexType is ArrayObj)
+            {
+                list.AddRange(IndexType.Traverse());
+            }
+            
+            return list;
+        }
     }    
 }

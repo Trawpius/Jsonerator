@@ -6,26 +6,17 @@ using System.Threading.Tasks;
 
 namespace Jsonerator.JsonObj
 {
-    public class BaseObj
+    public abstract class BaseObj
     {
         public BaseObj(string name)
         {
-
-            if(string.IsNullOrWhiteSpace(name))
-            {
-                Name = "DefaultName";
-            }
-            else
-            {
-                Name = name;
-            }
+            Name = name;
             ObjType = ObjType.Null;
         }
         public string Name { get; set; }
         public ObjType ObjType { get; set; }
 
-        // Reference back to Parent Object
-        public BaseObj? Parent;
+        public abstract List<BaseObj> Traverse();
 
         public override bool Equals(object? obj)
         {

@@ -12,8 +12,10 @@ namespace Jsonerator
 {
     public static class Objenerator
     {
-        public static ObjectObj Objenerate(JObject jsonObject)
+        private static string defaultname;
+        public static ObjectObj Objenerate(JObject jsonObject, string classname = "DefaultName")
         {
+            defaultname = classname;
             return BuildObject(jsonObject);
         }
 
@@ -21,7 +23,12 @@ namespace Jsonerator
         private static ObjectObj BuildObject(JObject parent)
         {
             string name = parent.Path.Split('.').Last().TrimAfter('[');
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                name = defaultname;
+            }
             ObjectObj obj = new ObjectObj(name);
+            
 
             List<BaseObj> children = new List<BaseObj>();
 

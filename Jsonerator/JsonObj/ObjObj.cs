@@ -15,5 +15,18 @@ namespace Jsonerator.JsonObj
 
         // All properties, including Property, Array and Object classes
         public List<BaseObj> Children { get; set; } = new List<BaseObj>();
+
+        public override List<BaseObj> Traverse()
+        {
+            List<BaseObj> list = new List<BaseObj>();
+
+            foreach (BaseObj obj in Children)
+            {
+                if(obj is ObjectObj)
+                    list.Add((ObjectObj)obj);
+                list.AddRange(obj.Traverse());
+            }
+            return list;
+        }
     }
 }

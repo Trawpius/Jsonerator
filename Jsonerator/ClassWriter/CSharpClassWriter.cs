@@ -79,10 +79,11 @@ namespace Jsonerator.ClassWriter
 
         public override string WriteProperty(BaseObj prop)
         {
-            string format = $"public {{0}} {{1}} {{get; set; }}";
+            string format = $"public {{0}} {{1}}";
+            string tail = $"{{get; set; }}";
             string propname = prop.Name;
             string proptype = prop.ObjType.ToString();
-            return string.Format(format, proptype, propname);
+            return string.Format(format, proptype, propname) + tail;
         }
 
     }

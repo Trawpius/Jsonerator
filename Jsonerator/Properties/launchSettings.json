@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Jsonerator": {
+      "commandName": "Project",
+      "commandLineArgs": "\"D:\\Programs\\C#\\Jsonerator\\Jsonerator\\jsontest.json\""
+    }
+  }
+}

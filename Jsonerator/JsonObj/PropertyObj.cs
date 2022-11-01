@@ -12,6 +12,11 @@ namespace Jsonerator.JsonObj
         {
             ObjType = objType;
         }
+
+        public override List<BaseObj> Traverse()
+        {
+            return new List<BaseObj>();
+        }
     }
 }
 
